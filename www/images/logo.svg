@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B3A5C"/>
+      <stop offset="100%" style="stop-color:#2E86AB"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#bg)"/>
+  <text x="60" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="24" fill="white">surv</text>
+  <text x="60" y="78" text-anchor="middle" font-family="Arial,sans-serif" font-weight="300" font-size="18" fill="rgba(255,255,255,0.8)">Pred</text>
+  <line x1="25" y1="88" x2="95" y2="88" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="60" y="106" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">CLINICAL TRIALS</text>
+</svg>
