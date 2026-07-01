@@ -21,7 +21,7 @@ SurvPred is an interactive R Shiny application for forecasting **subject enrollm
 ### Key Capabilities
 
 | Module | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Enrollment Fitting** | Poisson, time-decay, B-spline, and piecewise Poisson models for accurate enrollment forecasting |
 | **Survival Event Prediction** | Eight time-to-event models including exponential, Weibull, log-logistic, log-normal, piecewise exponential, Cox, spline, and model averaging |
 | **Dropout Fitting** | Flexible censoring models with user-specified rates or data-driven fitting for realistic dropout simulation |
@@ -36,20 +36,6 @@ SurvPred is an interactive R Shiny application for forecasting **subject enrollm
 ```         
 SurvPred_shiny/
 ├── app.R                  # Main application (UI + server logic)
-├── R/
-│   ├── utilities.R        # Utility functions (piecewise exponential distributions, etc.)
-│   ├── data.R             # Built-in dataset documentation
-│   ├── summarizeObserved.R # Observed data summary statistics
-│   ├── fitEnrollment.R    # Enrollment model fitting
-│   ├── fitEvent.R         # Time-to-event model fitting
-│   ├── fitDropout.R       # Time-to-dropout model fitting
-│   ├── predictEnrollment.R # Enrollment prediction
-│   ├── predictEvent.R     # Event prediction
-│   └── getPrediction.R    # Master prediction dispatch
-├── data/
-│   ├── interimData1.rda   # Example data: enrollment ongoing
-│   ├── interimData2.rda   # Example data: enrollment complete
-│   └── finalData.rda      # Example data: target events reached
 ├── www/
 │   ├── css/main.css       # Custom styling
 │   ├── js/auth.js         # Authentication helper
@@ -86,7 +72,7 @@ shiny::runApp("path/to/SurvPred_shiny")
 Uploaded data must be an **.xlsx** file with the following columns:
 
 | Column | Type | Description | Required |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | `trialsdt` | Date | Trial start date | Yes |
 | `usubjid` | character | Unique subject identifier | Yes |
 | `randdt` | Date | Randomization date | Yes |
@@ -121,7 +107,7 @@ The sidebar is organized into four sections:
 #### Prediction Targets
 
 | Parameter | Description | Default |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Target Enrollment | Total subjects to enroll (positive integer) | 300 |
 | Target Events | Total events to reach (positive integer, ≤ target enrollment) | 200 |
 | Prediction Interval | Confidence level for prediction bands | 95% |
@@ -135,7 +121,7 @@ Select which curves to show on the prediction plot: **Enrollment**, **Event**, *
 #### Advanced Settings
 
 | Setting | Description | Default |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Stratify by Treatment | Fit separate models per treatment arm | Off |
 | Number of Arms | Number of treatment arms (1–6) | 2 |
 | Treatment allocation | Block randomization sizes per arm | Equal allocation |
@@ -168,7 +154,7 @@ Available in non-design stages. Provides a comprehensive overview of the observe
 Specify enrollment model priors directly:
 
 | Model                 | Parameters                                          |
-|-----------------------|-----------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | **Poisson**           | Monthly enrollment rate (subjects/month)            |
 | **Time-decay**        | Base rate μ and decay rate δ                        |
 | **Piecewise Poisson** | Starting time and enrollment rate for each interval |
@@ -190,7 +176,7 @@ Choose between **model-based** (fit from data) or **user-specified** future enro
 #### Design Stage
 
 | Model | Required Parameters |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Exponential** | Hazard rate per treatment |
 | **Weibull** | Shape and scale parameters per treatment |
 | **Log-logistic** | Location (log scale) and scale (log scale) per treatment |
@@ -202,13 +188,13 @@ Choose between **model-based** (fit from data) or **user-specified** future enro
 Eight time-to-event models are available:
 
 | Model | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | Exponential | Constant hazard |
 | Weibull | Monotonic hazard (increasing or decreasing) |
 | Log-logistic | Non-monotonic hazard |
 | Log-normal | Non-monotonic hazard |
 | Piecewise exponential | Stepwise constant hazard |
-| **Model averaging** | BIC-weighted combination of Weibull and log-normal — **recommended default** |
+| Model averaging | BIC-weighted combination of Weibull and log-normal |
 | Spline | Royston–Parmar flexible parametric model (tuneable knots and scale: hazard / odds / normal) |
 | Cox | Semi-parametric Cox proportional hazards model |
 
@@ -298,7 +284,7 @@ Lists the methodological references that underpin the application (see [Referenc
 Three datasets are bundled with the app for demonstration. When no file is uploaded, `interimData1` is loaded by default.
 
 | Dataset | Scenario | Sample Size |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `interimData1` | Enrollment is still ongoing (mid-enrollment interim analysis) | 225 subjects |
 | `interimData2` | Enrollment has completed (post-enrollment interim analysis) | 300 subjects |
 | `finalData` | Target number of events has been reached (final analysis) | 300 subjects |
@@ -370,6 +356,4 @@ Each dataset contains the columns: `trialsdt`, `usubjid`, `randdt`, `treatment`,
 ## Deployment Info
 
 -   **Host**: shinyapps.io
--   **Account**: chenchao
--   **App ID**: 17566866
 -   **URL**: <https://chenchao.shinyapps.io/SurvPred/>
