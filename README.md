@@ -154,7 +154,7 @@ Available in non-design stages. Provides a comprehensive overview of the observe
 Specify enrollment model priors directly:
 
 | Model                 | Parameters                                          |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | **Poisson**           | Monthly enrollment rate (subjects/month)            |
 | **Time-decay**        | Base rate μ and decay rate δ                        |
 | **Piecewise Poisson** | Starting time and enrollment rate for each interval |
@@ -276,20 +276,6 @@ Lists the methodological references that underpin the application (see [Referenc
 2.  Draw model parameters from the asymptotic posterior (or use MLE point estimates if "Fix Model Parameters" is enabled).
 3.  Simulate arrival times for future subjects, event times for both ongoing and future subjects, and dropout times.
 4.  Aggregate results across Monte Carlo replications to produce median predictions and prediction intervals.
-
-------------------------------------------------------------------------
-
-## Built-in Example Datasets
-
-Three datasets are bundled with the app for demonstration. When no file is uploaded, `interimData1` is loaded by default.
-
-| Dataset | Scenario | Sample Size |
-|------------------------|------------------------|------------------------|
-| `interimData1` | Enrollment is still ongoing (mid-enrollment interim analysis) | 225 subjects |
-| `interimData2` | Enrollment has completed (post-enrollment interim analysis) | 300 subjects |
-| `finalData` | Target number of events has been reached (final analysis) | 300 subjects |
-
-Each dataset contains the columns: `trialsdt`, `usubjid`, `randdt`, `treatment`, `treatment_description`, `time`, `event`, `dropout`, `cutoffdt`.
 
 ------------------------------------------------------------------------
 
